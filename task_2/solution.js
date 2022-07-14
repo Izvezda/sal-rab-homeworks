@@ -7,14 +7,12 @@ function calcShipping(sum, min, shipping) {
 
     let shippingSum; // создайте переменную shippingSum
 
-    if(productsSum == 0) { 
+    if(productsSum == 0 || productsSum >= freeShippingMinSum) { 
         console.log(shippingSum = 0);
      } // если productsSum равно 0,
     // то shippingSum присвоить значение 0
 
-    if(productsSum >= freeShippingMinSum) {
-        console.log(shippingSum = 0);
-    } // если productsSum Больше или равна freeShippingMinSum,
+    // если productsSum Больше или равна freeShippingMinSum,
     // то shippingSum присвоить значение 0
 
     if (productsSum > 0 && productsSum < freeShippingMinSum) {
@@ -34,13 +32,9 @@ function calcDiscount(sum, min, discount) {
 
     // Задание №2.2. Рассчитать скидку
 
-    let discountSum; // создайте переменную discountSum
+    let discountSum = productsSum >= discountMinSum ? productsSum / 100 * discountPart : 0; // создайте переменную discountSum
 
-    if (productsSum >= discountMinSum) {
-        console.log (discountSum = productsSum / 100 * discountPart);
-    } else {
-        console.log(discountSum = 0);
-    } // если productsSum больше или равно discountMinSum,
+    // если productsSum больше или равно discountMinSum,
     // то присвойте discountSum значение discountPart процентов от productsSum,
     // иначе присвойте discountSum значение 0
 
@@ -64,9 +58,9 @@ function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shi
 
     totalSum = (totalSum + shippingSum); // прибавьте к totalSum значение shippingSum
 
-    let freeShipping; // создайте переменную freeShipping
+    let freeShipping = shippingSum == 0; // создайте переменную freeShipping
     // запишите без использования if или любых других условий:
-    (shippingSum == 0) ? freeShipping = true : freeShipping = false; // если shippingSum равно нулю, то freeShipping должна быть равна true, иначе freeShipping должна быть равна false
+    // если shippingSum равно нулю, то freeShipping должна быть равна true, иначе freeShipping должна быть равна false
 
     // Конец решения задачи №2.3.
 
